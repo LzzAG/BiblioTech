@@ -1,0 +1,70 @@
+# --- Logs e Debug ---
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Dependências de Pacotes (Node) ---
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# --- Python e Ambiente Virtual ---
+venv/
+.venv/
+ENV/
+env/
+bin/
+include/
+share/
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+
+# --- Django e Banco de Dados ---
+db.sqlite3
+db.sqlite3-journal
+# Proteção total para variáveis de ambiente
+.env
+.env.*
+!.env.example
+# Arquivos de mídia e estáticos
+media/
+staticfiles/
+static_cdn/
+
+# --- Backups de Banco de Dados ---
+# Evita subir dados sensíveis de alunos e livros para o GitHub
+*.sql
+backup_biblioteca.sql
+
+# --- Configurações de Editor (VS Code/IntelliJ) ---
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.history/
+.DS_Store
+
+# --- Outros ---
+.cache/
