@@ -68,3 +68,7 @@ backup_biblioteca.sql
 
 # --- Outros ---
 .cache/
+
+# --- Arquivos temporários de preview (não versionar) ---
+frontend/preview.html
+frontend/src/preview.tsx

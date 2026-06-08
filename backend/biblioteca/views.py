@@ -159,7 +159,23 @@ class EmprestimoViewSet(viewsets.ModelViewSet):
     http_method_names = ['get', 'post', 'put', 'patch', 'head', 'options']
 
     def get_queryset(self):
-        return Emprestimo.objects.select_related('aluno', 'funcionario', 'livro').all().order_by('-data_emprestimo')
+        queryset = Emprestimo.objects.select_related('aluno', 'funcionario', 'livro').all().order_by('-data_emprestimo')
+        turma = self.request.query_params.get('turma')
+        if turma:
+            queryset = queryset.filter(aluno__turma=turma)
+        return queryset
+
+    @action(detail=False, methods=['get'])
+    def turmas(self, request):
+        turmas = (
+            Emprestimo.objects
+            .filter(devolvido=False, aluno__isnull=False)
+            .exclude(aluno__turma='')
+            .values_list('aluno__turma', flat=True)
+            .distinct()
+            .order_by('aluno__turma')
+        )
+        return Response(list(turmas))
 
     def perform_create(self, serializer):
         emprestimo = serializer.save()
